@@ -1,0 +1,50 @@
+public class Bookstore {
+	
+	public static void main(String args[]) throws IOException
+	{
+		InputStreamReader r=new InputStreamReader(System.in);    
+		BufferedReader br = new BufferedReader(r);
+		//user input
+		System.out.println("Enter Initial amount");
+		double initial = Double.parseDouble(br.readLine());
+		System.out.println("Enter Discount amount");
+		double discount = Double.parseDouble(br.readLine());
+		System.out.println("Enter Floor amount");
+		double floor = Double.parseDouble(br.readLine());
+		while (floor > initial)
+		{
+			System.out.println("Floor amount is greater than initial. Re-enter");
+			System.out.println("Enter Floor amount");
+			floor = Double.parseDouble(br.readLine());
+		}
+		System.out.println("Enter Budget");
+		double budget = Double.parseDouble(br.readLine());
+		//calling function to return no. of books purchased and remaining amount
+		double result[] = booksPurchased(initial, discount, floor, budget);
+		
+		System.out.println("no. of books purchased: " + (int)result[0]);
+		System.out.println("amount remaining: " + result[1]);
+	}
+	
+	static double[] booksPurchased(double initial, double discount, double floor, double budget)
+	{
+		double books_bought = 0;
+		//validating input
+		if(initial<=0 || discount < 0 || floor <= 0 || discount > initial) 
+			return new double[] {books_bought,budget};
+		
+		while(budget >= initial || budget >= floor)
+		{
+			if(books_bought == 0)
+				budget -= initial;
+			else
+			{
+				budget -= initial - (books_bought*discount) > floor?initial - (books_bought*discount):floor;
+			}
+			books_bought++;
+		}
+		
+		return new double[] {books_bought,budget};
+	}
+
+}
