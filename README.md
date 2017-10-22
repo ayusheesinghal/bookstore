@@ -8,7 +8,7 @@ Build and Run Instructions
 --------------
 Install java
 Update Java_Home 
-
+Download and unzip BookStoreTest
 cd BookStoreTest/src
 compile from terminal : javac BooksPurchased.java Bookstore.java BookstoreMain.java
 run from terminal : java BookstoreMain
