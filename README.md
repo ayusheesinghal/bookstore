@@ -43,6 +43,6 @@ Test cases coverage:
 
 Further scope
 ------------
-* The books_bought_at_floor_price in booksPurchased() can be used to return the no. of books purchased at floor price.
 * Validation exceptions can be added for input parameters. Currently returned as message string in response
 * Test cases can be modified to check for expected validation exceptions.
+* The books_bought_at_floor_price in booksPurchased() can be used to return the no. of books purchased at floor price.
